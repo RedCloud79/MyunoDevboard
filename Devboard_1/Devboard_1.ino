@@ -10,7 +10,7 @@ void Led_bright() {
             digitalWrite(Led[i], LOW);
           }
         }
-      }
+  }
 }
 
 void setup() {
