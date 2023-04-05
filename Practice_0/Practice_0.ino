@@ -1,5 +1,7 @@
 const int led = 5;
 const int count = 3;
+const int inputPin = 4;
+int result = 0;
 
 void blink_0(){
   digitalWrite(led, HIGH);
@@ -18,13 +20,26 @@ void blink_1(int count){
     if(count <= 0) break;
   }
 }
+int blink_2(int period){ // 버튼을 누르기전 까지는 led의 깜빡임이 지속, 누르면led 깜박임 횟수 리턴
+  int switchval = (digitalRead(inputPin)) ;
+
+  while (switchval == LOW){
+    digitalWrite(led, HIGH);
+    delay(period);
+    digitalWrite(led, LOW);
+    delay(period);
+    result++;
+    if(digitalRead(inputPin)==HIGH) Serial.println(result);
+  }
+}
 
 void setup() {
   Serial.begin(9600);
   pinMode(led, OUTPUT);
-  blink_1(count);
+  pinMode(inputPin, INPUT);
 }
 
 void loop() {
-  //blink_1(count);
+  blink_2(1000);
+  //Serial.println(result);
 }
