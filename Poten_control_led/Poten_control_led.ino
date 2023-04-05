@@ -13,7 +13,7 @@ void setup() {
 }
 
 void loop() {
-  if(analogRead(sensor) > 100){
+  if(analogRead(sensor) >= 100){
     blink();
   }
 }
