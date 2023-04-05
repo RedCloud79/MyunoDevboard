@@ -21,7 +21,7 @@ void blink_1(int count){
   }
 }
 int blink_2(int period){ // 버튼을 누르기전 까지는 led의 깜빡임이 지속, 누르면led 깜박임 횟수 리턴
-  int switchval = (digitalRead(inputPin)) ;
+  int switchval = digitalRead(inputPin) ;
 
   while (switchval == LOW){
     digitalWrite(led, HIGH);
