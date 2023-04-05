@@ -9,12 +9,10 @@ void blink(){
 }
 
 void setup() {
-  Serial.begin(9600);
   pinMode (led, OUTPUT);
 }
 
 void loop() {
-  Serial.println(sensor);
   if(analogRead(sensor) > 100){
     blink();
   }
